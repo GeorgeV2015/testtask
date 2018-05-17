@@ -14,6 +14,10 @@ Route::get('/news/{newsSlug}', 'NewsController@show')->name('news.show');
 Route::get('/comments', 'CommentsController@index')->name('comments');
 Route::post('/comments', 'CommentsController@store');
 
+Route::get('/get_captcha/{config?}', function (\Mews\Captcha\Captcha $captcha, $config = 'default') {
+    return $captcha->src($config);
+});
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');;

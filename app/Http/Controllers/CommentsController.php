@@ -20,7 +20,8 @@ class CommentsController extends Controller {
         $this->validate($request, [
             'name'  => 'required|min:2|alpha_num',
             'email' => 'required|email',
-            'text'  => 'required'
+            'text'  => 'required',
+            'captcha' => 'required|captcha'
         ]);
 
         $comment = new Comments();

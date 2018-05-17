@@ -17,8 +17,12 @@ mix.styles([
     'resources/assets/css/blog-home.css'
 ], 'public/css/front.css');
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .extract(['jquery', 'bootstrap']);
+mix.scripts([
+    'resources/assets/js/jquery.min.js',
+    'resources/assets/js/popper.min.js',
+    'resources/assets/js/bootstrap.min.js',
+    'resources/assets/js/app.js'
+], 'public/js/app.js');
 
 mix.styles([
     'resources/assets/admin/css/bootstrap.min.css',

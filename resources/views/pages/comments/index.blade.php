@@ -19,7 +19,9 @@
                 </div>
             @endforeach
 
-            {{ $comments->links() }}
+            <div class="d-flex justify-content-center">
+                {{ $comments->links() }}
+            </div>
 
             <div class="card my-4">
                 <h5 class="card-header">Leave a Comment:</h5>
@@ -45,12 +47,21 @@
                             <label for="text">Your Comment:</label>
                             <textarea name="text" id="text" cols="30" rows="6" class="form-control">{{ old('text') }}</textarea>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="captcha"/>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <img src="{{ captcha_src() }}" alt="captcha" class="captcha-img" data-refresh-config="default"><a href="#" id="refresh"><i class="fa fa-undo ml-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
                         <button class="btn btn-primary" type="submit">Add Comment</button>
                     </form>
-                    {{--{!! Form::open(['route' => 'comment']) !!}
-                    {{ Form::textareaField('text', ' ', old('text'), ['rows' => 3, 'placeholder' => 'Write your comment...']) }}
-                    {{ Form::submit('Add Comment', ['class' => 'btn btn-primary']) }}
-                    {!! Form::close() !!}--}}
                 </div>
             </div>
 
